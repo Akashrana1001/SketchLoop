@@ -27,8 +27,8 @@ export const env = {
     nodeEnv: process.env.NODE_ENV ?? 'development',
     port: parsedPort,
     corsOrigin: process.env.CORS_ORIGIN?.includes(',')
-        ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
-        : process.env.CORS_ORIGIN ?? DEFAULT_ORIGIN,
+        ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim().replace(/\/$/, ''))
+        : (process.env.CORS_ORIGIN ?? DEFAULT_ORIGIN).replace(/\/$/, ''),
     authSessionTtlHours: parsePositiveInteger(
         process.env.AUTH_SESSION_TTL_HOURS,
         DEFAULT_AUTH_SESSION_TTL_HOURS,

@@ -76,7 +76,7 @@ export async function updateBoard(roomId, patch) {
     const updated = await Board.findOneAndUpdate(
         { roomId },
         { $set: patch },
-        { new: true, lean: true }
+        { returnDocument: 'after', lean: true }
     );
     return updated;
 }
@@ -99,7 +99,7 @@ export async function appendBoardOperation(roomId, operation) {
             $push: { operations: operation },
             $inc: { strokes: 1 } 
         },
-        { new: true, lean: true }
+        { returnDocument: 'after', lean: true }
     );
     return operation;
 }

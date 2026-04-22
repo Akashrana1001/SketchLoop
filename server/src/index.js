@@ -11,11 +11,11 @@ import { registerWhiteboardGateway } from './realtime/whiteboard.gateway.js';
 const httpServer = createServer(app);
 const io = new SocketIOServer(httpServer, {
     cors: {
-        origin: env.corsOrigin,
-        credentials: true,
+        origin: "*",
+        methods: ["GET", "POST"],
+        credentials: false
     },
 });
-
 registerWhiteboardGateway(io);
 
 let server;

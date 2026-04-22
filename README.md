@@ -1,5 +1,7 @@
 # Collaborative Whiteboard Monorepo
 
+**Live Demo: [sketch-loop-client.vercel.app](https://sketch-loop-client.vercel.app)**
+
 A full-stack starter for a collaborative whiteboard application with a professional project layout:
 
 - React + Vite frontend (`client`)
